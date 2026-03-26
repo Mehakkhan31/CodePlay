@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pixelify_Sans, Inter, Jersey_10 } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 import Provider from "./provider";
 
 const geistSans = Geist({
@@ -41,6 +42,7 @@ export default function RootLayout({
         ${GameFont.variable} ${inter.variable}
         antialiased`}
       >
+        <ClerkProvider>
         <Provider
          attribute="class"
          defaultTheme="dark"
@@ -49,6 +51,7 @@ export default function RootLayout({
          >
           {children}
         </Provider>
+        </ClerkProvider>
       </body>
     </html>
   );
