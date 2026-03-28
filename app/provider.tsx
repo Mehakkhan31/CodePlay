@@ -6,6 +6,7 @@ import axios from 'axios';
 import { UserDetailContext } from './context/UserDetailContext';
 import { useState } from 'react';
 import { set } from 'date-fns';
+import { Header } from './_components/Header';
 
 function Provider({
     children,
@@ -30,6 +31,10 @@ function Provider({
     <NextThemesProvider 
     {...props}>
       <UserDetailContext.Provider value={{userDetail, setUserDetail}}>
+         {/* Header / Navbar  */}
+       <div className="flex flex-col items-center">
+        <Header />
+        </div>
         {children}
       </UserDetailContext.Provider>
     </NextThemesProvider>
